@@ -5,26 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const config_1 = require("./config");
+const morgan_1 = __importDefault(require("morgan"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const usersRouters_1 = require("./routes/usersRouters");
 const app = (0, express_1.default)();
 const port = process.env.PORT || 8000;
 dotenv_1.default.config();
+app.use((0, morgan_1.default)("dev"));
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
-app.get("/", async (_req, res) => {
-    const connection = await (0, config_1.config)();
-    const [rows, _fields] = await connection.query("SELECT * FROM users");
-    res.send(rows);
-});
-app.post("/post", async (req, res) => {
-    const { username, password } = req.body;
-    const connection = await (0, config_1.config)();
-    await connection.query("INSERT INTO users (username, password) VALUES (?,?)", [username, password]);
-    res.send({
-        message: "success",
-    });
-});
+(0, usersRouters_1.usersRouters)(app);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
