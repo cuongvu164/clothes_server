@@ -12,6 +12,9 @@ const config = async () => {
         host: process.env.HOST || "localhost",
         user: process.env.USER || "root",
         database: process.env.DATABASE || "test",
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0,
     });
 };
 exports.config = config;
