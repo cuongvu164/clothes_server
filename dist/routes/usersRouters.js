@@ -9,6 +9,7 @@ const router = express_1.default.Router();
 const usersController_1 = require("../controller/usersController");
 const usersRouters = (app) => {
     router.get("/api/getAllUsers", usersController_1.getAllUsers);
+    router.post("/api/registerUser", usersController_1.registerUser);
     return app.use("/", router);
 };
 exports.usersRouters = usersRouters;
