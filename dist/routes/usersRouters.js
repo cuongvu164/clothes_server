@@ -9,7 +9,9 @@ const router = express_1.default.Router();
 const usersController_1 = require("../controller/usersController");
 const usersRouters = (app) => {
     router.get("/api/getAllUsers", usersController_1.getAllUsers);
+    router.get("/api/getSingleUser", usersController_1.getSingleUser);
     router.post("/api/registerUser", usersController_1.registerUser);
+    router.post("/api/loginUser", usersController_1.loginUser);
     return app.use("/", router);
 };
 exports.usersRouters = usersRouters;

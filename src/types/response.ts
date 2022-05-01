@@ -1,4 +1,4 @@
 export class Response {
-    success: boolean;
-    errorMessage: string;
+  success: boolean;
+  errorMessage: string;
 }

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegisterInput = void 0;
-class RegisterInput {
+exports.Users = void 0;
+class Users {
 }
-exports.RegisterInput = RegisterInput;
+exports.Users = Users;
 //# sourceMappingURL=users.js.map
