@@ -1,17 +1,8 @@
-import { DataTypes, Model } from "sequelize";
+import { DataTypes } from "sequelize";
 import { configdb } from "../config/config";
 
-export class Users extends Model {
-  declare id: number;
-  declare username: string;
-  declare password: string;
-  declare email: string;
-  declare address: string;
-  declare gender: number;
-  declare phone: number;
-  declare date_of_birth: Date;
-}
-Users.init(
+export const User = configdb.define(
+  "User",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -35,16 +26,16 @@ Users.init(
       allowNull: false,
     },
     gender: {
-      type: DataTypes.TINYINT,
+      type: DataTypes.BOOLEAN,
     },
     date_of_birth: {
       type: DataTypes.DATE,
     },
+    role: {
+      type: DataTypes.INTEGER,
+    }
   },
   {
-    sequelize: configdb,
-    modelName: "Users",
-    createdAt: false,
-    updatedAt: false,
+    // Other model options go here
   }
 );
