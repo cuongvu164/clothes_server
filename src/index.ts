@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import { createConnection } from "./config/connect";
-import { userRouters } from "./routes/user";
+// import { userRouters } from "./routes/user";
 
 dotenv.config();
 const app: Express = express();
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 createConnection();
-userRouters(app);
+// userRouters(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

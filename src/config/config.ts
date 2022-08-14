@@ -1,11 +1,13 @@
 import { Sequelize } from "sequelize";
 export const configdb = new Sequelize(
-  "english_software_for_high_school",
-  "root",
-  undefined,
+  "clothes",
+  "admin",
+  "admin",
+  
   {
     host: "localhost",
     dialect: "mysql",
+    port: 3306,
     pool: {
       max: 5,
       min: 0,
